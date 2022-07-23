@@ -1,0 +1,4 @@
+spring.application.name=config-server
+spring.profiles.active=native
+spring.cloud.config.server.native.search-locations=file:///C://Users//akram//Documents//workspace-spring-tool-suite-4-4.14.0.RELEASE//microservices
+server.port=8071
