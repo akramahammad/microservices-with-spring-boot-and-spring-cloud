@@ -1,0 +1,9 @@
+spring.application.name=configserver
+spring.profiles.active=native
+spring.cloud.config.server.native.search-locations=file:///C://Users//akram//Documents//workspace-spring-tool-suite-4-4.14.0.RELEASE//microservices/config
+#spring.cloud.config.server.git.uri=https://github.com/akramahammad/microservices-config.git
+#spring.cloud.config.server.git.clone-on-start=true
+#spring.cloud.config.server.git.default-label=master
+server.port=8071
+
+encrypt.key=encryptionKey
