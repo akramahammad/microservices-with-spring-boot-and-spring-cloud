@@ -2,11 +2,30 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="com.microservices.accounts.repository.AccountsRepository"/>
     <fullyQualifiedTypeName name="com.microservices.accounts.model.Accounts"/>
-    <fullyQualifiedTypeName name="com.microservices.accounts.model.Customer"/>
     <fullyQualifiedTypeName name="com.microservices.cards.repository.CardsRepository"/>
     <fullyQualifiedTypeName name="com.microservices.cards.model.Cards"/>
     <fullyQualifiedTypeName name="com.microservices.cards.model.Customer"/>
     <fullyQualifiedTypeName name="com.microservices.loans.model.Loans"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.SpringBootApplication"/>
     <fullyQualifiedTypeName name="org.springframework.cloud.config.server.EnableConfigServer"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.server.EnableEurekaServer"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.openfeign.EnableFeignClients"/>
+    <fullyQualifiedTypeName name="feign.Request.HttpMethod"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.microservices.accounts.model.Customer"/>
+    <fullyQualifiedTypeName name="com.eazybytes.accounts.model.Customer"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.openfeign.FeignClient"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.eazybytes.accounts.model.Cards"/>
+    <fullyQualifiedTypeName name="com.eazybytes.accounts.feignclient.CardsClient"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker"/>
+    <fullyQualifiedTypeName name="io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker"/>
+    <fullyQualifiedTypeName name="io.github.resilience4j.retry.annotation.Retry"/>
+    <fullyQualifiedTypeName name="io.github.resilience4j.ratelimiter.annotation.RateLimiter"/>
+    <fullyQualifiedTypeName name="java.lang.Throwable"/>
+    <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.EnableEurekaClient"/>
 </qualifiedTypeNameHistroy>

@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +33,8 @@ import io.github.resilience4j.retry.annotation.Retry;
 
 @RestController
 public class AccountsController {
+	
+	private static Logger logger=LoggerFactory.getLogger(AccountsController.class);
 	
 	@Autowired
 	private AccountsRepository accountsRepository;
@@ -67,7 +71,7 @@ public class AccountsController {
 //	@CircuitBreaker(name= "detailsForCustomerSupport", fallbackMethod = "fetchAccountDetails")
 	@Retry(name= "detailsForCustomerSupport", fallbackMethod = "fetchAccountDetails")
 	public Map<String,Object> getAccountAndCardDetials(@RequestBody Customer customer) {
-		System.out.println("Inside getAccount and Card Details");
+		logger.info("Inside getAccount and Card Details");
 		Map<String,Object> response= new HashMap<>();
 		Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId());
 		List<Cards> cards=cardsClient.getCardDetails(customer);
