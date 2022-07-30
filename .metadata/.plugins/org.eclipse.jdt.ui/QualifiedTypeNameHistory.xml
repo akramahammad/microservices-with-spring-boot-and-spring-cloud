@@ -28,4 +28,11 @@
     <fullyQualifiedTypeName name="io.github.resilience4j.ratelimiter.annotation.RateLimiter"/>
     <fullyQualifiedTypeName name="java.lang.Throwable"/>
     <fullyQualifiedTypeName name="org.springframework.cloud.netflix.eureka.EnableEurekaClient"/>
+    <fullyQualifiedTypeName name="org.slf4j.LoggerFactory"/>
+    <fullyQualifiedTypeName name="com.eazybytes.accounts.controller.AccountsController"/>
+    <fullyQualifiedTypeName name="org.slf4j.Logger"/>
+    <fullyQualifiedTypeName name="io.micrometer.core.instrument.MeterRegistry"/>
+    <fullyQualifiedTypeName name="io.micrometer.core.aop.TimedAspect"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="io.micrometer.core.annotation.Timed"/>
 </qualifiedTypeNameHistroy>
