@@ -1,0 +1,19 @@
+deploymentName: gateway-deployment
+deploymentLabel: gateway
+replicaCount: 1
+
+image:
+  repository: akramahammad/gateway
+  tag: latest
+
+containerPort: 8072
+
+service:
+  type: LoadBalancer
+  port: 8072
+  targetPort: 8072
+
+config_enabled: true
+zipkin_enabled: true
+profile_enabled: true
+eureka_enabled: true

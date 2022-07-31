@@ -1,0 +1,19 @@
+deploymentName: eurekaserver-deployment
+deploymentLabel: eurekaserver
+replicaCount: 1
+
+image:
+  repository: akramahammad/eurekaserver
+  tag: latest
+
+containerPort: 8761
+
+service:
+  type: LoadBalancer
+  port: 8761
+  targetPort: 8761
+
+config_enabled: true
+zipkin_enabled: true
+profile_enabled: true
+eureka_enabled: false

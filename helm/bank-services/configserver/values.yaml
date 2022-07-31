@@ -1,0 +1,19 @@
+deploymentName: configserver-deployment
+deploymentLabel: configserver
+replicaCount: 1
+
+image:
+  repository: akramahammad/config-server
+  tag: latest
+
+containerPort: 8071
+
+service:
+  type: LoadBalancer
+  port: 8071
+  targetPort: 8071
+
+config_enabled: false
+zipkin_enabled: true
+profile_enabled: true
+eureka_enabled: false

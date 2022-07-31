@@ -1,0 +1,19 @@
+deploymentName: cards-deployment
+deploymentLabel: cards
+replicaCount: 1
+
+image:
+  repository: akramahammad/cards
+  tag: latest
+
+containerPort: 9000
+
+service:
+  type: LoadBalancer
+  port: 9000
+  targetPort: 9000
+
+config_enabled: true
+zipkin_enabled: true
+profile_enabled: true
+eureka_enabled: true
