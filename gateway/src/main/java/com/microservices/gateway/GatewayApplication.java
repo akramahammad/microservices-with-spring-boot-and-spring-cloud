@@ -17,6 +17,7 @@ public class GatewayApplication {
 		SpringApplication.run(GatewayApplication.class, args);
 	}
 	
+	
 	@Autowired
 	private TokenRelayGatewayFilterFactory filterFactory;
 	
@@ -25,19 +26,19 @@ public class GatewayApplication {
 	    return builder.routes()
 	        .route(p -> p
 	            .path("/bank/accounts/**")
-	            .filters(f -> f.filters(filterFactory.apply())
+	            .filters(f -> f.filter(filterFactory.apply())
 					.rewritePath("/bank/accounts/(?<segment>.*)","/${segment}")
 					.removeRequestHeader("Cookie"))
 	            .uri("lb://ACCOUNTS")).
 	        route(p -> p
 		            .path("/bank/loans/**")
-					.filters(f -> f.filters(filterFactory.apply())
+					.filters(f -> f.filter(filterFactory.apply())
 							.rewritePath("/bank/loans/(?<segment>.*)","/${segment}")
 							.removeRequestHeader("Cookie"))
 		            .uri("lb://LOANS")).
 	        route(p -> p
 		            .path("/bank/cards/**")
-					.filters(f -> f.filters(filterFactory.apply())
+					.filters(f -> f.filter(filterFactory.apply())
 							.rewritePath("/bank/cards/(?<segment>.*)","/${segment}")
 							.removeRequestHeader("Cookie"))
 		            .uri("lb://CARDS")).build();
