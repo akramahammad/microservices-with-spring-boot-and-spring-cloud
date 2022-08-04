@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eazybytes.accounts.feignclient.CardsClient;
+import com.eazybytes.accounts.feignclient.LoansClient;
 import com.eazybytes.accounts.model.Accounts;
 import com.eazybytes.accounts.model.Cards;
 import com.eazybytes.accounts.model.Customer;
+import com.eazybytes.accounts.model.Loans;
 import com.eazybytes.accounts.repository.AccountsRepository;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -43,6 +45,9 @@ public class AccountsController {
 	@Autowired
 	private CardsClient cardsClient;
 	
+	@Autowired
+	private LoansClient loansClient;
+	
 	@Value("${accounts.msg}")
 	private String msg;
 
@@ -65,20 +70,44 @@ public class AccountsController {
 		return this.msg;
 	}
 	
+	@GetMapping("/authmsg")
+	public String getAuthenticationMessage() {
+		return "Authenticated User";
+	}
+	
+	@GetMapping("/rolemsg")
+	public String getAuthorizationMessage() {
+		return "Authorized User";
+	}
+	
 	private String getDefaultMessage(Throwable t) {
 		return "Default Message";
 	}
 	
 	@PostMapping("/myAccountAndCard")
-//	@CircuitBreaker(name= "detailsForCustomerSupport", fallbackMethod = "fetchAccountDetails")
 	@Retry(name= "detailsForCustomerSupport", fallbackMethod = "fetchAccountDetails")
-	public Map<String,Object> getAccountAndCardDetials(@RequestBody Customer customer) {
+	public Map<String,Object> getAccountAndCardDetails(@RequestBody Customer customer) {
 		logger.info("Inside getAccount and Card Details");
 		Map<String,Object> response= new HashMap<>();
 		Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId());
 		List<Cards> cards=cardsClient.getCardDetails(customer);
 		response.put("Account", accounts);
 		response.put("Cards", cards);
+		return response;
+		
+	}
+	
+	@PostMapping("/myDetails")
+	@CircuitBreaker(name= "detailsForCustomerSupport", fallbackMethod = "fetchAccountDetails")
+	public Map<String,Object> getDetails(@RequestBody Customer customer) {
+		logger.info("Inside getDetails");
+		Map<String,Object> response= new HashMap<>();
+		Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId());
+		List<Cards> cards=cardsClient.getCardDetails(customer);
+		List<Loans> loans=loansClient.getLoansDetails(customer);
+		response.put("Account", accounts);
+		response.put("Cards", cards);
+		response.put("Loans", loans);
 		return response;
 		
 	}
